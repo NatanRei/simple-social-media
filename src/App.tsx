@@ -1,34 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { Header } from './components/Header'
+import './global.css'
+import style from './App.module.css';
+import { Post } from './components/Post';
+import { Sidebar } from './components/Sidebar';
 
-function App() {
-  const [count, setCount] = useState(0)
+export function App() {
+ 
+  const posts = [
+    {
+      id: 1,
+      header: {
+        avatar: 'https://github.com/NatanRei.png',
+        name: 'Natan Rei',
+        rule: 'Developer',
+        datetime: new Date("2023-01-06 21:07:31")
+      },
+      post: [
+        {type: 'text', content: 'Hello World'},
+        {type: 'text', content: 'lorem Ipsum is simply dummy text'},
+        {type: 'link', content: 'Lorem Ipsum is simply dummy text'}
+      ]
+    },
+    {
+      id: 2,
+      header: {
+        avatar: 'https://github.com/NatanRei.png',
+        name: 'john doe',
+        rule: 'Machine Operator',
+        datetime: new Date("2022-08-21 11:23:01")
+      },
+      post: [
+        {type: 'text', content: 'Hello World'},
+        {type: 'text', content: 'hahahahah hahahha ahahhaha hahah'},
+        {type: 'link', content: 'Lorem Ipsum is simply dummy text'}
+      ]
+    }
+  ];
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Header/>
+      <div className={style.wrapper}>
+        <Sidebar/>
+        <main>
+          {posts.map(post => <Post header={post.header} post={post.post} key={post.id}/>)}
+
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }
-
-export default App
