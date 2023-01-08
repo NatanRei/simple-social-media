@@ -10,7 +10,7 @@ export function App() {
     {
       id: 1,
       header: {
-        avatar: 'https://randomuser.me/api/portraits/men/56.jpg',
+        avatar: 'https://github.com/NatanRei.png',
         name: 'Natan Rei',
         rule: 'Developer',
         datetime: new Date("2023-01-06 21:07:31")
@@ -24,8 +24,8 @@ export function App() {
     {
       id: 2,
       header: {
-        avatar: 'https://randomuser.me/api/portraits/women/56.jpg',
-        name: 'Jair chmura',
+        avatar: 'https://github.com/NatanRei.png',
+        name: 'john doe',
         rule: 'Machine Operator',
         datetime: new Date("2022-08-21 11:23:01")
       },
